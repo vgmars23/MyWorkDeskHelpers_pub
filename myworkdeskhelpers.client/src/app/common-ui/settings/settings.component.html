@@ -1,0 +1,21 @@
+<mat-card class="settings-card">
+    <h2>🔧 Настройки профиля</h2>
+  
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="userInfo.email" type="email" placeholder="Введите email">
+    </mat-form-field>
+  
+    <mat-form-field class="full-width">
+      <mat-label>Telegram</mat-label>
+      <input matInput [(ngModel)]="userInfo.telegram" type="text" placeholder="@username">
+    </mat-form-field>
+  
+    <mat-form-field class="full-width">
+      <mat-label>Телефон</mat-label>
+      <input matInput [(ngModel)]="userInfo.phone" type="tel" placeholder="+380123456789">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="saveChanges()">💾 Сохранить</button>
+  </mat-card>
+  

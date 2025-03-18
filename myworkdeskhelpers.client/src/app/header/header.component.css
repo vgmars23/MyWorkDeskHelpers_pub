@@ -1,0 +1,30 @@
+
+
+mat-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #ff9800;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+mat-icon {
+  font-size: 20px;
+}
+
+.counter {
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  margin-left: 5px;
+  font-size: 12px;
+}

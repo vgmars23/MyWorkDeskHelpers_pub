@@ -1,0 +1,18 @@
+<div class="kanban-board">
+    <div class="kanban-column" *ngFor="let column of columns; let i = index">
+        <h2>
+            {{ column.title }}
+            <button mat-mini-fab color="primary" (click)="openCreateTaskDialog(i)">
+                <mat-icon>add</mat-icon>
+            </button>
+        </h2>
+
+        <div cdkDropList [cdkDropListData]="column.tasks" [cdkDropListConnectedTo]="connectedLists"
+            [id]="'cdk-drop-list-' + i" class="task-list" (cdkDropListDropped)="onDrop($event)">
+            <div class="task" *ngFor="let task of column.tasks; let j = index" cdkDrag
+                (dblclick)="openEditTaskDialog(i, j)">
+                {{ task.title }}
+            </div>
+        </div>
+    </div>
+</div>

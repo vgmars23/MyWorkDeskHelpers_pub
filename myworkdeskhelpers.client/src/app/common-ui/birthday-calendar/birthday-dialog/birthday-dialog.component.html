@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Дни рождения на {{ data.date }}</h2>
+
+<mat-dialog-content class="birthday-list">
+  <mat-list *ngIf="data.birthdays.length > 0; else noBirthdays">
+    <mat-list-item *ngFor="let b of data.birthdays" class="birthday-item">
+      <div class="birthday-entry">
+        <input matInput [(ngModel)]="b.name" placeholder="Имя" />
+
+        <input matInput [(ngModel)]="b.details" placeholder="Детали" />
+
+        <mat-radio-group [(ngModel)]="b.reminderDays">
+          <mat-radio-button [value]="1">1 день</mat-radio-button>
+          <mat-radio-button [value]="3">3 дня</mat-radio-button>
+          <mat-radio-button [value]="7">7 дней</mat-radio-button>
+        </mat-radio-group>
+
+        <button mat-icon-button color="primary" (click)="updateBirthday(b)">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" (click)="deleteBirthday(b.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+
+  <ng-template #noBirthdays>
+    <p>Нет записей. Добавьте новый день рождения.</p>
+  </ng-template>
+
+  <mat-divider></mat-divider>
+  <h3>Добавить новый день рождения</h3>
+  <div class="new-birthday">
+    <input matInput placeholder="Имя" [(ngModel)]="newBirthdayName" />
+    <input matInput placeholder="Детали" [(ngModel)]="newBirthdayDetails" />
+
+    <mat-radio-group [(ngModel)]="newBirthdayReminder">
+      <mat-radio-button [value]="1">1 день</mat-radio-button>
+      <mat-radio-button [value]="3">3 дня</mat-radio-button>
+      <mat-radio-button [value]="7">7 дней</mat-radio-button>
+    </mat-radio-group>
+
+    <button mat-button color="primary" (click)="addBirthday()">Добавить</button>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Закрыть</button>
+</mat-dialog-actions>

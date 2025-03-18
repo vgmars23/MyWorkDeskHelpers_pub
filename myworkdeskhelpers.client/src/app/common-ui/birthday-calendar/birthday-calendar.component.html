@@ -1,0 +1,31 @@
+<mat-card>
+  <!-- <button (click)="sendBirthdayReminder()">📧 Отправить напоминание</button> -->
+  <!-- 📨 Ввод Email -->
+  <div class="notification-container">
+    <button (click)="sendNotification(NotificationType.Email)">Отправить Email</button>
+    <button (click)="sendNotification(NotificationType.Telegram)">Отправить в Telegram</button>
+      </div>
+
+  <!-- 📲 Ввод Telegram -->
+  <div class="notification-container">
+  </div>
+  <div *ngIf="isLoading" class="spinner-container">
+    <mat-progress-spinner mode="indeterminate" color="primary"></mat-progress-spinner>
+  </div>
+  <mat-calendar #calendar [dateClass]="dateClass" (selectedChange)="openBirthdayDialog($event)"></mat-calendar>
+
+
+  <h3>🎉 Дни рождения сегодня:</h3>
+  
+  <!-- ✅ Если есть дни рождения, показываем список -->
+  <ul *ngIf="todayBirthdays.length > 0; else noBirthdaysTemplate">
+    <li *ngFor="let birthday of todayBirthdays">
+      <strong>{{ birthday.name }}</strong> — {{ formatDate(birthday.dateTimestamp) }}
+    </li>
+  </ul>
+
+  <!-- ✅ Если сегодня нет дней рождений, показываем этот текст -->
+  <ng-template #noBirthdaysTemplate>
+    <p>Сегодня нет дней рождений.</p>
+  </ng-template>
+</mat-card>

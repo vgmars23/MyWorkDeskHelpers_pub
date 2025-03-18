@@ -1,0 +1,6 @@
+@MyWorkDeskHelpers.Server_HostAddress = http://localhost:5062
+
+GET {{MyWorkDeskHelpers.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

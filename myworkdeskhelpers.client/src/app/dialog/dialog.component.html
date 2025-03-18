@@ -1,0 +1,14 @@
+
+<h2 mat-dialog-title>Выбрана дата: {{ data.selectedDate | date }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Введите имя</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onSave()">Сохранить</button>
+  <button mat-button mat-dialog-close>Отмена</button>
+</mat-dialog-actions>

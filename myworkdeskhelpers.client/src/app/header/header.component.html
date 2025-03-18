@@ -1,0 +1,27 @@
+<mat-list class="horizontal-list">
+  <mat-list-item>
+    <a mat-line routerLink="/birthdays" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+      Birthdays
+      <span *ngIf="unreadBirthdaysCount > 0" class="counter">
+        {{ unreadBirthdaysCount }}
+      </span>
+    </a>
+  </mat-list-item>
+  <mat-list-item>
+    <a mat-line routerLink="/kanban" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+      Kanban
+    </a>
+  </mat-list-item>
+  <mat-list-item>USD</mat-list-item>
+  <mat-list-item>
+    <a mat-line routerLink="/settings" routerLinkActive="active-link">
+      <mat-icon>settings</mat-icon> Settings
+    </a>
+  </mat-list-item>
+</mat-list>
+
+<header>
+  <button mat-raised-button color="warn" (click)="onLogout()">Выйти</button>
+</header>
+
+<router-outlet></router-outlet>
